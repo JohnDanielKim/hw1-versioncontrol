@@ -14,7 +14,7 @@
 
 namespace Pic10b {
 	
-	template <class T>
+	template <typename T>
 	class vector {
 	private:
 		double* the_data;
@@ -73,7 +73,7 @@ namespace Pic10b {
 	
 	
 	/** ************************* THE BIG 4 ************************* **/
-	template <class T>
+	template <typename T>
 	vector<T>::vector () : the_data(nullptr), the_size(0), the_capacity(INIT_CAP) {
 		
 		std::cout << "xxx: Default constructor :xxx" << std::endl;
@@ -81,7 +81,7 @@ namespace Pic10b {
 		the_data = new double[the_capacity];
 	}
 	
-	template <class T>
+	template <typename T>
 	vector<T>::vector (const vector<T>& source) : the_data(nullptr),
 	the_size(source.the_size), the_capacity(source.the_capacity) {
 		
@@ -95,7 +95,7 @@ namespace Pic10b {
 		}
 	}
 	
-	template <class T>
+	template <typename T>
 	vector<T>& vector<T>::operator= (const vector& rhs) {
 		
 		std::cout << "xxx: Assignment constructor :xxx" << std::endl;
@@ -116,7 +116,7 @@ namespace Pic10b {
 		return *this;
 	}
 	
-	template <class T>
+	template <typename T>
 	vector<T>::~vector () {
 		
 		std::cout << "xxx: Destructor :xxx" << std::endl;
@@ -128,7 +128,7 @@ namespace Pic10b {
 //	bool vector::empty() const {
 //		return the_size == 0;
 //	}
-	template <class T>
+	template <typename T>
 	bool vector<T>::empty () const {
 		return the_size == 0;
 	}
@@ -136,7 +136,7 @@ namespace Pic10b {
 //	size_t vector::size() const {
 //		return the_size;
 //	}
-	template <class T>
+	template <typename T>
 	size_t vector<T>::size () const {
 		return the_size;
 	}
@@ -144,7 +144,7 @@ namespace Pic10b {
 //	size_t vector::capacity() const {
 //		return the_capacity;
 //	}
-	template <class T>
+	template <typename T>
 	size_t vector<T>::capacity () const {
 		return the_capacity;
 	}
@@ -152,7 +152,7 @@ namespace Pic10b {
 //	double vector::front() const {
 //		return *the_data;
 //	}
-	template <class T>
+	template <typename T>
 	double vector<T>::front () const {
 		return *the_data;
 	}
@@ -160,7 +160,7 @@ namespace Pic10b {
 //	double vector::back() const {
 //		return *(the_data + the_size - 1);
 //	}
-	template <class T>
+	template <typename T>
 	double vector<T>::back () const {
 		return *(the_data + the_size - 1);
 	}
@@ -170,7 +170,7 @@ namespace Pic10b {
 //			return the_data[index];
 //		return the_data[0];
 //	}
-	template <class T>
+	template <typename T>
 	double vector<T>::at( size_t index ) const {
 		if ( index < the_size ) {
 			return the_data[index];
@@ -181,7 +181,7 @@ namespace Pic10b {
 //	double& vector::operator[]( size_t index ){
 //		return the_data[index];
 //	}
-	template <class T>
+	template <typename T>
 	double& vector<T>::operator [] (size_t index) {
 		return the_data[index];
 	}
@@ -189,7 +189,7 @@ namespace Pic10b {
 //	double vector::operator[]( size_t index ) const {
 //		return the_data[index];
 //	}
-	template <class T>
+	template <typename T>
 	double vector<T>::operator [] (size_t index) const {
 		return the_data[index];
 	}
@@ -200,7 +200,7 @@ namespace Pic10b {
 //			out << the_data[i] << ' ';
 //		out << '\n';
 //	}
-	template <class T>
+	template <typename T>
 	void vector<T>::dump_data_to (std::ostream& out) const {
 		out << "Vector (dump): ";
 		for ( size_t i = 0 ; i < the_capacity ; ++i )
@@ -211,7 +211,7 @@ namespace Pic10b {
 //	void vector::dump_data() const {
 //		dump_data_to( std::cout );
 //	}
-	template <class T>
+	template <typename T>
 	void vector<T>::dump_data () const {
 		dump_data_to( std::cout );
 	}
@@ -222,7 +222,7 @@ namespace Pic10b {
 //
 //		the_data[the_size++] = new_value;
 //	}
-	template <class T>
+	template <typename T>
 	void vector<T>::push_back (double new_value) {
 		if (the_size == the_capacity) {
 			reserve(the_capacity + 1);
@@ -236,7 +236,7 @@ namespace Pic10b {
 //		if ( the_size > 0 )
 //			--the_size;
 //	}
-	template <class T>
+	template <typename T>
 	void vector<T>::pop_back () {
 		if (the_size > 0) {
 			--the_size;
@@ -259,7 +259,7 @@ namespace Pic10b {
 //			delete old_location;
 //		}
 //	}
-	template <class T>
+	template <typename T>
 	void vector<T>::reserve (size_t new_capacity) {
 		if (new_capacity > the_capacity) {
 			if (new_capacity <= 2 * the_capacity) {
@@ -279,7 +279,7 @@ namespace Pic10b {
 	
 	
 	/* other necessary member functions: arithmetic */
-	template <class T>
+	template <typename T>
 	vector<T>& vector<T>::operator += (const vector<T>& rhs) {
 		for (int i = 0; i < the_size; ++i) {
 			the_data[i] += rhs[i];
@@ -287,7 +287,7 @@ namespace Pic10b {
 		return *this;
 	}
 	
-	template <class T>
+	template <typename T>
 	Pic10b::vector<T> operator + (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
 		Pic10b::vector<T> sum = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
@@ -296,7 +296,7 @@ namespace Pic10b {
 		return sum;
 	}
 	
-	template <class T>
+	template <typename T>
 	vector<T>& vector<T>::operator -= (const vector<T>& rhs) {
 		for (int i = 0; i < the_size; ++i) {
 			the_data[i] -= rhs[i];
@@ -304,7 +304,7 @@ namespace Pic10b {
 		return *this;
 	}
 	
-	template <class T>
+	template <typename T>
 	Pic10b::vector<T> operator - (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
 		Pic10b::vector<T> difference = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
@@ -313,7 +313,7 @@ namespace Pic10b {
 		return difference;
 	}
 	
-	template <class T>
+	template <typename T>
 	vector<T>& vector<T>::operator *= (const vector<T>& rhs) {
 		for (int i = 0; i < the_size; ++i) {
 			the_data[i] *= rhs[i];
@@ -321,7 +321,7 @@ namespace Pic10b {
 		return *this;
 	}
 	
-	template <class T>
+	template <typename T>
 	Pic10b::vector<T> operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
 		Pic10b::vector<T> product = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
@@ -330,7 +330,7 @@ namespace Pic10b {
 		return product;
 	}
 	
-	template <class T>
+	template <typename T>
 	vector<T>& vector<T>::operator /= (const vector<T>& rhs) {
 		for (int i = 0; i < the_size; ++i) {
 			the_data[i] /= rhs[i];
@@ -338,7 +338,7 @@ namespace Pic10b {
 		return *this;
 	}
 	
-	template <class T>
+	template <typename T>
 	Pic10b::vector<T> operator / (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
 		Pic10b::vector<T> quotient = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
@@ -348,32 +348,32 @@ namespace Pic10b {
 	}
 	
 	/* other necessary member functions: comparison */
-	template <class T>
+	template <typename T>
 	bool vector<T>::operator == (const vector<T>& rhs) {
 		return ((*this) * (*this)) == (rhs * rhs);
 	}
 	
-	template <class T>
+	template <typename T>
 	bool vector<T>::operator != (const vector<T>& rhs) {
 		return ((*this) * (*this)) != (rhs * rhs);
 	}
 	
-	template <class T>
+	template <typename T>
 	bool vector<T>::operator < (const vector<T>& rhs) {
 		return ((*this) * (*this)) < (rhs * rhs);
 	}
 	
-	template <class T>
+	template <typename T>
 	bool vector<T>::operator <= (const vector<T>& rhs) {
 		return ((*this) * (*this)) <= (rhs * rhs);
 	}
 	
-	template <class T>
+	template <typename T>
 	bool vector<T>::operator > (const vector<T>& rhs) {
 		return ((*this) * (*this)) > (rhs * rhs);
 	}
 	
-	template <class T>
+	template <typename T>
 	bool vector<T>::operator >= (const vector<T>& rhs) {
 		return ((*this) * (*this)) >= (rhs * rhs);
 	}
@@ -388,14 +388,14 @@ namespace Pic10b {
 //		out << v[i] << ' ';
 //	return out;
 //}
-template <class T>
+template <typename T>
 std::ostream& operator<< (std::ostream& out, const Pic10b::vector<T>& v) {
 	for ( size_t i = 0 ; i < v.size() ; ++i )
 		out << v[i] << ' ';
 	return out;
 }
 
-template <class T>
+template <typename T>
 void print_vector (const Pic10b::vector<T>& v) {
 	if ( v.empty() )
 		std::cout << "Vector is empty\n";
