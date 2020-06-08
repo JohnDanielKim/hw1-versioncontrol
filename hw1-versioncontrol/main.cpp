@@ -69,7 +69,7 @@
 
 // DRIVER TXT TWO
 
-#include "vector.hpp"   	// Pic10b::vector<ItemType>
+#include "pic10b_vector.hpp"   	// Pic10b::vector<ItemType>
 #include <iostream>		// std::cout
 #include <iomanip>		// std::boolalpha
 #include <string>		// std::string
