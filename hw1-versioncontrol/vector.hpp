@@ -32,7 +32,7 @@ namespace Pic10b {
 		~vector();
 		
 		// Other members [public]
-		void empty () const;
+		bool empty () const;
 		size_t size() const;
 		size_t capacity() const;
 		double front() const;
@@ -109,7 +109,7 @@ namespace Pic10b {
 //		return the_size == 0;
 //	}
 	template <class T>
-	void vector<T>::empty () const {
+	bool vector<T>::empty () const {
 		return the_size == 0;
 	}
 	
