@@ -267,7 +267,7 @@ namespace Pic10b {
 	Pic10b::vector<T> operator * (T lhs, const Pic10b::vector<T>& rhs) {
 		Pic10b::vector<T> product = rhs;
 		for (int i = 0; i < rhs.size(); ++i) {
-			product[i] += lhs;
+			product[i] *= lhs;
 		}
 		return product;
 	}
@@ -276,7 +276,7 @@ namespace Pic10b {
 	Pic10b::vector<T> operator * (const Pic10b::vector<T>& lhs, T rhs) {
 		Pic10b::vector<T> product = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
-			product[i] += rhs;
+			product[i] *= rhs;
 		}
 		return product;
 	}
