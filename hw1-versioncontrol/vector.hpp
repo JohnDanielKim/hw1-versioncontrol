@@ -192,11 +192,19 @@ namespace Pic10b {
 		dump_data_to( std::cout );
 	}
 	
-	void vector::push_back( double new_value ){
-		if ( the_size == the_capacity )
-			reserve( the_capacity + 1 );     // `the_data` is reassigned
-		
+//	void vector::push_back( double new_value ){
+//		if ( the_size == the_capacity )
+//			reserve( the_capacity + 1 );     // `the_data` is reassigned
+//
+//		the_data[the_size++] = new_value;
+//	}
+	template <class T>
+	void vector<T>::push_back(double new_value) {
+		if ( the_size == the_capacity ) {
+			reserve( the_capacity + 1 );
+		}
 		the_data[the_size++] = new_value;
+
 	}
 	
 	// This implementation does not shrink the vector (ever)
