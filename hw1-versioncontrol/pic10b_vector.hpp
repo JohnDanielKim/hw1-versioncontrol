@@ -64,7 +64,7 @@ namespace Pic10b {
 	template <typename T>
 	vector<T>::vector () : the_data(nullptr), the_size(0), the_capacity(INIT_CAP) {
 		
-		std::cout << "xxx: Default constructor :xxx" << std::endl;
+		std::cout << "xxxxxxxxxx: Default constructor called :xxxxxxxxxx" << std::endl;
 		
 		the_data = new double[the_capacity];
 	}
@@ -73,7 +73,7 @@ namespace Pic10b {
 	vector<T>::vector (const vector<T>& source) : the_data(nullptr),
 	the_size(source.the_size), the_capacity(source.the_capacity) {
 		
-		std::cout << "xxx: Copy constructor :xxx" << std::endl;
+		std::cout << "xxxxxxxxxx: Copy constructor called :xxxxxxxxxx" << std::endl;
 		
 		the_data = new double[the_capacity];
 		
@@ -86,7 +86,7 @@ namespace Pic10b {
 	template <typename T>
 	vector<T>& vector<T>::operator= (const vector& rhs) {
 		
-		std::cout << "xxx: Assignment constructor :xxx" << std::endl;
+		std::cout << "xxxxxxxxxx: Assignment constructor called :xxxxxxxxxx" << std::endl;
 		
 		if ( this != &rhs ) {     // Self-assignment?
 			// Release old memory and request more
@@ -107,7 +107,7 @@ namespace Pic10b {
 	template <typename T>
 	vector<T>::~vector () {
 		
-		std::cout << "xxx: Destructor :xxx" << std::endl;
+		std::cout << "xxxxxxxxxx: Destructor called :xxxxxxxxxx" << std::endl;
 		
 		delete[] the_data;
 	}
