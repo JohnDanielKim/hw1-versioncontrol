@@ -199,34 +199,56 @@ namespace Pic10b {
 //		the_data[the_size++] = new_value;
 //	}
 	template <class T>
-	void vector<T>::push_back(double new_value) {
-		if ( the_size == the_capacity ) {
-			reserve( the_capacity + 1 );
+	void vector<T>::push_back (double new_value) {
+		if (the_size == the_capacity) {
+			reserve(the_capacity + 1);
 		}
 		the_data[the_size++] = new_value;
 
 	}
 	
 	// This implementation does not shrink the vector (ever)
-	void vector::pop_back(){
-		if ( the_size > 0 )
+//	void vector::pop_back(){
+//		if ( the_size > 0 )
+//			--the_size;
+//	}
+	template <class T>
+	void vector<T>::pop_back () {
+		if (the_size > 0) {
 			--the_size;
+		}
 	}
 	
-	
-	void vector::reserve( size_t new_capacity ){
-		if ( new_capacity > the_capacity ) {
-			if ( new_capacity <= 2 * the_capacity )
+//	void vector::reserve( size_t new_capacity ){
+//		if ( new_capacity > the_capacity ) {
+//			if ( new_capacity <= 2 * the_capacity )
+//				new_capacity = 2 * the_capacity;
+//
+//			double* old_location = the_data;
+//
+//			the_data = new double[new_capacity];
+//			the_capacity = new_capacity;
+//
+//			for ( size_t i = 0 ; i < the_size ; ++i )
+//				the_data[i] = old_location[i];
+//
+//			delete old_location;
+//		}
+//	}
+	template <class T>
+	void vector<T>::reserve (size_t new_capacity) {
+		if (new_capacity > the_capacity) {
+			if (new_capacity <= 2 * the_capacity) {
 				new_capacity = 2 * the_capacity;
-			
+			}
 			double* old_location = the_data;
 			
 			the_data = new double[new_capacity];
 			the_capacity = new_capacity;
 			
-			for ( size_t i = 0 ; i < the_size ; ++i )
+			for ( size_t i = 0 ; i < the_size ; ++i ) {
 				the_data[i] = old_location[i];
-			
+			}
 			delete old_location;
 		}
 	}
