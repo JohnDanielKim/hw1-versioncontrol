@@ -10,10 +10,11 @@
 #define vector_hpp
 
 #include <stdio.h>
+#include <iostream>
 
 namespace Pic10b {
 	
-	class vector {
+	template <class T> class vector {
 	private:
 		double* the_data;
 		size_t the_size;
@@ -30,7 +31,7 @@ namespace Pic10b {
 		~vector();
 		
 		// Other members [public]
-		bool empty() const;
+		void empty () const;
 		size_t size() const;
 		size_t capacity() const;
 		double front() const;
@@ -99,7 +100,11 @@ namespace Pic10b {
 	}
 	
 	/** *********************** OTHER MEMBERS *********************** **/
-	bool vector::empty() const {
+//	bool vector::empty() const {
+//		return the_size == 0;
+//	}
+	template <class T>
+	void vector<T>::empty () const {
 		return the_size == 0;
 	}
 	
