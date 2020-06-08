@@ -45,7 +45,8 @@ namespace Pic10b {
 		void push_back( double new_value );
 		void pop_back();
 		
-		// added comparison members
+		// added members
+		vector& operator += (const vector& rhs);
 		bool operator == (const vector& rhs);
 		bool operator != (const vector& rhs);
 		bool operator < (const vector& rhs);
@@ -202,6 +203,16 @@ namespace Pic10b {
 		}
 	}
 	
+	// added arithmetic member function, += operator
+	template <typename T>
+	vector<T>& vector<T>::operator += (const vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			the_data[i] += rhs[i];
+		}
+		return *this;
+	}
+
+	
 	/* other necessary member functions: comparison */
 	template <typename T>
 	bool vector<T>::operator == (const vector<T>& rhs) {
@@ -233,6 +244,52 @@ namespace Pic10b {
 		return ((*this) * (*this)) >= (rhs * rhs);
 	}
 	
+	// added arithmetic functions
+	template <typename T>
+	Pic10b::vector<T> operator + (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		Pic10b::vector<T> sum = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			sum[i] += rhs[i];
+		}
+		return sum;
+	}
+	
+	template <typename T>
+	T operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		T product = 0;
+		for (int i = 0; i < lhs.size(); ++i) {
+			product += lhs[i] * rhs[i];
+		}
+		return product;
+	}
+	
+	template <typename T>
+	Pic10b::vector<T> operator * (T lhs, const Pic10b::vector<T>& rhs) {
+		Pic10b::vector<T> product = rhs;
+		for (int i = 0; i < rhs.size(); ++i) {
+			product[i] += lhs;
+		}
+		return product;
+	}
+	
+	template <typename T>
+	Pic10b::vector<T> operator * (const Pic10b::vector<T>& lhs, T rhs) {
+		Pic10b::vector<T> product = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			product[i] += rhs;
+		}
+		return product;
+	}
+	
+	template <typename T>
+	Pic10b::vector<std::string> operator * (const Pic10b::vector<std::string>& lhs, const Pic10b::vector<std::string>& rhs) {
+		Pic10b::vector<std::string> str = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			str[i] += rhs[i];
+		}
+		return str;
+	}
+	
 } // end Pic10b namespace
 
 
@@ -251,44 +308,6 @@ void print_vector (const Pic10b::vector<T>& v) {
 		std::cout << "Vector is empty\n";
 	else
 		std::cout << "Vector (contents): " << v << '\n' ;
-}
-
-
-
-
-template <typename T>
-vector& vector<T>::operator += (const vector<T>& rhs) {
-	for (int i = 0; i < the_size; ++i) {
-		the_data[i] += rhs[i];
-	}
-	return *this;
-}
-
-template <typename T>
-vector<T>& operator + (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-	Pic10b::vector<T> sum = lhs;
-	for (int i = 0; i < lhs.size(); ++i) {
-		sum[i] += rhs[i];
-	}
-	return sum;
-}
-
-template <typename T>
-T operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-	T product = 0;
-	for (int i = 0; i < lhs.size(); ++i) {
-		product += lhs[i] * rhs[i];
-	}
-	return product;
-}
-
-template <typename T>
-vector<std::string>& operator * (const Pic10b::vector<std::string>& lhs, const Pic10b::vector<std::string>& rhs) {
-	Pic10b::vector<T> str = lhs;
-	for (int i = 0; i < lhs.size(); ++i) {
-		str[i] += rhs[i];
-	}
-	return str;
 }
 
 #endif /* vector_hpp */
