@@ -46,8 +46,14 @@ namespace Pic10b {
 		void pop_back();
 		
 		//added members
-		vector& operator + (const vector& rhs);
 		vector& operator += (const vector& rhs);
+		vector& operator + (const vector& rhs);
+		vector& operator -= (const vector& rhs);
+		vector& operator - (const vector& rhs);
+		vector& operator *= (const vector& rhs);
+		vector& operator * (const vector& rhs);
+		vector& operator /= (const vector& rhs);
+		vector& operator / (const vector& rhs);
 	private:
 		//Other members [private]
 		void reserve( size_t new_capacity );
@@ -261,7 +267,7 @@ namespace Pic10b {
 	}
 	
 	
-	/* other necessary member functions */
+	/* other necessary member functions: arithmetic */
 	template <class T>
 	vector<T>& vector<T>::operator += (const vector<T>& rhs) {
 		for (int i = 0; i < the_size; ++i) {
@@ -274,6 +280,54 @@ namespace Pic10b {
 	vector<T>& vector<T>::operator + (const Pic10b::vector<T>& rhs) {
 		for (int i = 0; i < the_size; ++i) {
 			*this[i] += rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator -= (const vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			the_data[i] -= rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator - (const Pic10b::vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			*this[i] -= rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator *= (const vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			the_data[i] *= rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator * (const Pic10b::vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			*this[i] *= rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator /= (const vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			the_data[i] /= rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator / (const Pic10b::vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			*this[i] /= rhs[i];
 		}
 		return *this;
 	}
