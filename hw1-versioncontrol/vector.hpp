@@ -57,6 +57,11 @@ namespace Pic10b {
 		
 		//added comparison members
 		bool operator == (const vector& rhs);
+		bool operator != (const vector& rhs);
+		bool operator < (const vector& rhs);
+		bool operator <= (const vector& rhs);
+		bool operator > (const vector& rhs);
+		bool operator >= (const vector& rhs);
 	private:
 		//Other members [private]
 		void reserve( size_t new_capacity );
@@ -339,6 +344,31 @@ namespace Pic10b {
 	template <class T>
 	bool vector<T>::operator == (const vector<T>& rhs) {
 		return ((*this) * (*this)) == (rhs * rhs);
+	}
+	
+	template <class T>
+	bool vector<T>::operator != (const vector<T>& rhs) {
+		return ((*this) * (*this)) != (rhs * rhs);
+	}
+	
+	template <class T>
+	bool vector<T>::operator < (const vector<T>& rhs) {
+		return ((*this) * (*this)) < (rhs * rhs);
+	}
+	
+	template <class T>
+	bool vector<T>::operator <= (const vector<T>& rhs) {
+		return ((*this) * (*this)) <= (rhs * rhs);
+	}
+	
+	template <class T>
+	bool vector<T>::operator > (const vector<T>& rhs) {
+		return ((*this) * (*this)) > (rhs * rhs);
+	}
+	
+	template <class T>
+	bool vector<T>::operator >= (const vector<T>& rhs) {
+		return ((*this) * (*this)) >= (rhs * rhs);
 	}
 	
 } // end Pic10b namespace
