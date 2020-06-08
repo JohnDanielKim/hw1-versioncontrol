@@ -62,9 +62,6 @@ namespace Pic10b {
 		bool operator <= (const vector& rhs);
 		bool operator > (const vector& rhs);
 		bool operator >= (const vector& rhs);
-		
-		// added math member
-		vector& sqrt(const vector&);
 	private:
 		//Other members [private]
 		void reserve( size_t new_capacity );
@@ -323,28 +320,11 @@ namespace Pic10b {
 	
 	template <typename T>
 	T operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		T product = lhs;
+		T product = 0;
 		for (int i = 0; i < lhs.size(); ++i) {
-			product[i] *= rhs[i];
+			product += lhs[i] * rhs[i];
 		}
 		return product;
-	}
-	
-	template <typename T>
-	vector<T>& vector<T>::operator /= (const vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			the_data[i] /= rhs[i];
-		}
-		return *this;
-	}
-	
-	template <typename T>
-	T operator / (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		T quotient = lhs;
-		for (int i = 0; i < lhs.size(); ++i) {
-			quotient[i] /= rhs[i];
-		}
-		return quotient;
 	}
 	
 	/* other necessary member functions: comparison */
