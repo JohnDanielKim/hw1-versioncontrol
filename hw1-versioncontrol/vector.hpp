@@ -170,16 +170,27 @@ namespace Pic10b {
 		return the_data[index];
 	}
 	
-	void vector::dump_data_to( std::ostream& out ) const {
+//	void vector::dump_data_to( std::ostream& out ) const {
+//		out << "Vector (dump): ";
+//		for ( size_t i = 0 ; i < the_capacity ; ++i )
+//			out << the_data[i] << ' ';
+//		out << '\n';
+//	}
+	template <class T>
+	void vector<T>::dump_data_to (std::ostream& out) const {
 		out << "Vector (dump): ";
 		for ( size_t i = 0 ; i < the_capacity ; ++i )
 			out << the_data[i] << ' ';
 		out << '\n';
 	}
-	void vector::dump_data() const {
+	
+//	void vector::dump_data() const {
+//		dump_data_to( std::cout );
+//	}
+	template <class T>
+	void vector<T>::dump_data () const {
 		dump_data_to( std::cout );
 	}
-	
 	
 	void vector::push_back( double new_value ){
 		if ( the_size == the_capacity )
