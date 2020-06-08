@@ -48,12 +48,7 @@ namespace Pic10b {
 		// added arithmetic members
 		vector& operator += (const vector& rhs);
 		vector& operator + (const vector& rhs);
-		vector& operator -= (const vector& rhs);
-		vector& operator - (const vector& rhs);
-		vector& operator *= (const vector& rhs);
 		vector& operator * (const vector& rhs);
-		vector& operator /= (const vector& rhs);
-		vector& operator / (const vector& rhs);
 		
 		// added comparison members
 		bool operator == (const vector& rhs);
@@ -291,31 +286,6 @@ namespace Pic10b {
 			sum[i] += rhs[i];
 		}
 		return sum;
-	}
-	
-	template <typename T>
-	vector<T>& vector<T>::operator -= (const vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			the_data[i] -= rhs[i];
-		}
-		return *this;
-	}
-	
-	template <typename T>
-	T operator - (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		T difference = lhs;
-		for (int i = 0; i < lhs.size(); ++i) {
-			difference[i] -= rhs[i];
-		}
-		return difference;
-	}
-	
-	template <typename T>
-	vector<T>& vector<T>::operator *= (const vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			the_data[i] *= rhs[i];
-		}
-		return *this;
 	}
 	
 	template <typename T>
