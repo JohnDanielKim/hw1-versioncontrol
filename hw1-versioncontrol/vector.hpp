@@ -45,7 +45,7 @@ namespace Pic10b {
 		void push_back( double new_value );
 		void pop_back();
 		
-		//added members
+		//added arithmetic members
 		vector& operator += (const vector& rhs);
 		vector& operator + (const vector& rhs);
 		vector& operator -= (const vector& rhs);
@@ -54,6 +54,9 @@ namespace Pic10b {
 		vector& operator * (const vector& rhs);
 		vector& operator /= (const vector& rhs);
 		vector& operator / (const vector& rhs);
+		
+		//added comparison members
+		bool operator == (const vector& rhs);
 	private:
 		//Other members [private]
 		void reserve( size_t new_capacity );
@@ -332,6 +335,11 @@ namespace Pic10b {
 		return *this;
 	}
 	
+	/* other necessary member functions: comparison */
+	template <class T>
+	bool vector<T>::operator == (const vector<T>& rhs) {
+		return ((*this) * (*this)) == (rhs * rhs);
+	}
 	
 } // end Pic10b namespace
 
