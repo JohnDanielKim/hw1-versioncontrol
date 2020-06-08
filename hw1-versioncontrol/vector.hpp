@@ -124,17 +124,32 @@ namespace Pic10b {
 		return the_capacity;
 	}
 	
-	double vector::front() const {
+//	double vector::front() const {
+//		return *the_data;
+//	}
+	template <class T>
+	double vector<T>::front () const {
 		return *the_data;
 	}
 	
-	double vector::back() const {
+//	double vector::back() const {
+//		return *(the_data + the_size - 1);
+//	}
+	template <class T>
+	double vector<T>::back () const {
 		return *(the_data + the_size - 1);
 	}
 	
-	double vector::at( size_t index ) const {
-		if ( index < the_size )
+//	double vector::at( size_t index ) const {
+//		if ( index < the_size )
+//			return the_data[index];
+//		return the_data[0];
+//	}
+	template <class T>
+	double vector<T>::at( size_t index ) const {
+		if ( index < the_size ) {
 			return the_data[index];
+		}
 		return the_data[0];
 	}
 	
