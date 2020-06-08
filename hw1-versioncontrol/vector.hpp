@@ -45,7 +45,7 @@ namespace Pic10b {
 		void push_back( double new_value );
 		void pop_back();
 		
-		//added arithmetic members
+		// added arithmetic members
 		vector& operator += (const vector& rhs);
 		vector& operator + (const vector& rhs);
 		vector& operator -= (const vector& rhs);
@@ -55,13 +55,16 @@ namespace Pic10b {
 		vector& operator /= (const vector& rhs);
 		vector& operator / (const vector& rhs);
 		
-		//added comparison members
+		// added comparison members
 		bool operator == (const vector& rhs);
 		bool operator != (const vector& rhs);
 		bool operator < (const vector& rhs);
 		bool operator <= (const vector& rhs);
 		bool operator > (const vector& rhs);
 		bool operator >= (const vector& rhs);
+		
+		// added math member
+		vector& sqrt(const vector&);
 	private:
 		//Other members [private]
 		void reserve( size_t new_capacity );
@@ -285,11 +288,12 @@ namespace Pic10b {
 	}
 	
 	template <class T>
-	vector<T>& vector<T>::operator + (const Pic10b::vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			*this[i] += rhs[i];
+	Pic10b::vector<T> operator + (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		Pic10b::vector<T> sum = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			sum[i] += rhs[i];
 		}
-		return *this;
+		return sum;
 	}
 	
 	template <class T>
@@ -301,11 +305,12 @@ namespace Pic10b {
 	}
 	
 	template <class T>
-	vector<T>& vector<T>::operator - (const Pic10b::vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			*this[i] -= rhs[i];
+	Pic10b::vector<T> operator - (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		Pic10b::vector<T> difference = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			difference[i] -= rhs[i];
 		}
-		return *this;
+		return difference;
 	}
 	
 	template <class T>
@@ -317,11 +322,12 @@ namespace Pic10b {
 	}
 	
 	template <class T>
-	vector<T>& vector<T>::operator * (const Pic10b::vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			*this[i] *= rhs[i];
+	Pic10b::vector<T> operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		Pic10b::vector<T> product = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			product[i] *= rhs[i];
 		}
-		return *this;
+		return product;
 	}
 	
 	template <class T>
@@ -333,11 +339,12 @@ namespace Pic10b {
 	}
 	
 	template <class T>
-	vector<T>& vector<T>::operator / (const Pic10b::vector<T>& rhs) {
-		for (int i = 0; i < the_size; ++i) {
-			*this[i] /= rhs[i];
+	Pic10b::vector<T> operator / (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		Pic10b::vector<T> quotient = lhs;
+		for (int i = 0; i < lhs.size(); ++i) {
+			quotient[i] /= rhs[i];
 		}
-		return *this;
+		return quotient;
 	}
 	
 	/* other necessary member functions: comparison */
