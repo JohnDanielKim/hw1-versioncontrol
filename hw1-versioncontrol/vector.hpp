@@ -108,11 +108,19 @@ namespace Pic10b {
 		return the_size == 0;
 	}
 	
-	size_t vector::size() const {
+//	size_t vector::size() const {
+//		return the_size;
+//	}
+	template <class T>
+	size_t vector<T>::size () const {
 		return the_size;
 	}
 	
-	size_t vector::capacity() const {
+//	size_t vector::capacity() const {
+//		return the_capacity;
+//	}
+	template <class T>
+	size_t vector<T>::capacity () const {
 		return the_capacity;
 	}
 	
