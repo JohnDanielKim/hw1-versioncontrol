@@ -53,15 +53,17 @@ namespace Pic10b {
 	
 	
 	/** ************************* THE BIG 4 ************************* **/
-	vector::vector() : the_data(nullptr), the_size(0), the_capacity(INIT_CAP){
+	template <class T>
+	vector<T>::vector () : the_data(nullptr), the_size(0), the_capacity(INIT_CAP) {
 		
 		std::cout << "xxx: Default constructor :xxx" << std::endl;
 		
 		the_data = new double[the_capacity];
 	}
 	
-	vector::vector( const vector& source ) : the_data(nullptr),
-	the_size(source.the_size), the_capacity(source.the_capacity){
+	template <class T>
+	vector<T>::vector (const vector<T>& source) : the_data(nullptr),
+	the_size(source.the_size), the_capacity(source.the_capacity) {
 		
 		std::cout << "xxx: Copy constructor :xxx" << std::endl;
 		
@@ -73,9 +75,10 @@ namespace Pic10b {
 		}
 	}
 	
-	vector& vector::operator=( const vector& rhs ){
+	template <class T>
+	vector<T>& vector<T>::operator= (const vector& rhs) {
 		
-		std::cout << "xxx: Copy assignment constructor :xxx" << std::endl;
+		std::cout << "xxx: Assignment constructor :xxx" << std::endl;
 		
 		if ( this != &rhs ) {     // Self-assignment?
 			// Release old memory and request more
@@ -93,7 +96,8 @@ namespace Pic10b {
 		return *this;
 	}
 	
-	vector::~vector(){
+	template <class T>
+	vector<T>::~vector () {
 		
 		std::cout << "xxx: Destructor :xxx" << std::endl;
 		
@@ -264,14 +268,14 @@ namespace Pic10b {
 //	return out;
 //}
 template <class T>
-std::ostream& operator<<( std::ostream& out, const Pic10b::vector<T>& v ){
+std::ostream& operator<< (std::ostream& out, const Pic10b::vector<T>& v) {
 	for ( size_t i = 0 ; i < v.size() ; ++i )
 		out << v[i] << ' ';
 	return out;
 }
 
 template <class T>
-void print_vector( const Pic10b::vector<T>& v ){
+void print_vector (const Pic10b::vector<T>& v) {
 	if ( v.empty() )
 		std::cout << "Vector is empty\n";
 	else
