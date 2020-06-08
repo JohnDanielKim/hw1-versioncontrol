@@ -14,7 +14,8 @@
 
 namespace Pic10b {
 	
-	template <class T> class vector {
+	template <class T>
+	class vector {
 	private:
 		double* the_data;
 		size_t the_size;
@@ -153,10 +154,19 @@ namespace Pic10b {
 		return the_data[0];
 	}
 	
-	double& vector::operator[]( size_t index ){
+//	double& vector::operator[]( size_t index ){
+//		return the_data[index];
+//	}
+	template <class T>
+	double& vector<T>::operator [] (size_t index) {
 		return the_data[index];
 	}
-	double vector::operator[]( size_t index ) const {
+	
+//	double vector::operator[]( size_t index ) const {
+//		return the_data[index];
+//	}
+	template <class T>
+	double vector<T>::operator [] (size_t index) const {
 		return the_data[index];
 	}
 	
