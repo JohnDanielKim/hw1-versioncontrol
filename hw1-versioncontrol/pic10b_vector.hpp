@@ -2,7 +2,7 @@
 //  pic10b_vector.hpp
 //  hw1-versioncontrol
 //
-//  Created by Daniel Kim on 6/7/20.
+//  Created by Daniel Kim on 6/12/20.
 //  Copyright © 2020 John Kim. All rights reserved.
 //
 
@@ -281,14 +281,43 @@ namespace Pic10b {
 		return product;
 	}
 	
-	template <typename T>
-	Pic10b::vector<std::string> operator * (const Pic10b::vector<std::string>& lhs, const Pic10b::vector<std::string>& rhs) {
-		Pic10b::vector<std::string> str = lhs;
-		for (int i = 0; i < lhs.size(); ++i) {
-			str[i] += rhs[i];
-		}
-		return str;
-	}
+	
+	// all added functions for working with strings
+//	template <typename T>
+//	void vector<std::string>::push_back (double new_value) {
+//		if (the_size == the_capacity) {
+//			reserve(the_capacity + 1);
+//		}
+//		the_data[the_size++] = new_value;
+//
+//	}
+//
+//	template <typename T>
+//	Pic10b::vector<std::string> operator * (std::string lhs, const Pic10b::vector<std::string>& rhs) {
+//		Pic10b::vector<std::string> product = rhs;
+//		for (int i = 0; i < rhs.size(); ++i) {
+//			product[i].append(lhs);
+//		}
+//		return product;
+//	}
+//
+//	template <typename T>
+//	Pic10b::vector<std::string> operator * (const Pic10b::vector<std::string>& lhs, std::string rhs) {
+//		Pic10b::vector<std::string> product = lhs;
+//		for (int i = 0; i < lhs.size(); ++i) {
+//			product[i].append(rhs);
+//		}
+//		return product;
+//	}
+//
+//	template <typename T>
+//	Pic10b::vector<std::string> operator * (const Pic10b::vector<std::string>& lhs, const Pic10b::vector<std::string>& rhs) {
+//		Pic10b::vector<std::string> str = lhs;
+//		for (int i = 0; i < lhs.size(); ++i) {
+//			str[i] += rhs[i];
+//		}
+//		return str;
+//	}
 	
 } // end Pic10b namespace
 
@@ -297,6 +326,14 @@ namespace Pic10b {
 /** ************************ OTHER FUNCTIONS ************************ **/
 template <typename T>
 std::ostream& operator<< (std::ostream& out, const Pic10b::vector<T>& v) {
+	for ( size_t i = 0 ; i < v.size() ; ++i )
+		out << v[i] << ' ';
+	return out;
+}
+
+// added ostream function for strings
+template <typename T>
+std::ostream& operator<< (std::ostream& out, const Pic10b::vector<std::string>& v) {
 	for ( size_t i = 0 ; i < v.size() ; ++i )
 		out << v[i] << ' ';
 	return out;
