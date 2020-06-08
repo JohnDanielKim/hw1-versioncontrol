@@ -8,7 +8,7 @@
 
 
 
-// DRIVER TXT ONE
+// DRIVER TXT ONE: BASIC
 
 //#include <iostream>   // std::ostream, std::cout
 //#include "vector.hpp"
@@ -67,7 +67,7 @@
 //}
 
 
-// DRIVER TXT TWO
+// DRIVER TXT TWO: INT
 
 //#include "pic10b_vector.hpp"   	// Pic10b::vector<ItemType>
 //#include <iostream>		// std::cout
@@ -169,7 +169,7 @@
 //}
 
 
-// DRIVER TXT FOUR
+// DRIVER TXT THREE: DOUBLE
 
 #include "pic10b_vector.hpp"	// Pic10b::vector<ItemType>
 #include <iostream>		// std::cout
