@@ -288,8 +288,8 @@ namespace Pic10b {
 	}
 	
 	template <typename T>
-	Pic10b::vector<T> operator + (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		Pic10b::vector<T> sum = lhs;
+	T operator + (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		T sum = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
 			sum[i] += rhs[i];
 		}
@@ -305,8 +305,8 @@ namespace Pic10b {
 	}
 	
 	template <typename T>
-	Pic10b::vector<T> operator - (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		Pic10b::vector<T> difference = lhs;
+	T operator - (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		T difference = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
 			difference[i] -= rhs[i];
 		}
@@ -322,8 +322,8 @@ namespace Pic10b {
 	}
 	
 	template <typename T>
-	Pic10b::vector<T> operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		Pic10b::vector<T> product = lhs;
+	T operator * (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		T product = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
 			product[i] *= rhs[i];
 		}
@@ -339,8 +339,8 @@ namespace Pic10b {
 	}
 	
 	template <typename T>
-	Pic10b::vector<T> operator / (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
-		Pic10b::vector<T> quotient = lhs;
+	T operator / (const Pic10b::vector<T>& lhs, const Pic10b::vector<T>& rhs) {
+		T quotient = lhs;
 		for (int i = 0; i < lhs.size(); ++i) {
 			quotient[i] /= rhs[i];
 		}
