@@ -329,33 +329,33 @@ namespace Pic10b {
 	
 	/* other necessary member functions: comparison */
 	template <typename T>
-	bool vector<T>::operator == (const vector<T>& rhs) {
-		return ((*this) * (*this)) == (rhs * rhs);
+	T operator == (const vector<T>& lhs, const vector<T>& rhs) {
+		return (lhs * lhs) == (rhs * rhs);
 	}
 	
 	template <typename T>
-	bool vector<T>::operator != (const vector<T>& rhs) {
-		return ((*this) * (*this)) != (rhs * rhs);
+	T operator != (const vector<T>& lhs, const vector<T>& rhs) {
+		return (lhs * lhs) != (rhs * rhs);
 	}
 	
 	template <typename T>
-	bool vector<T>::operator < (const vector<T>& rhs) {
-		return ((*this) * (*this)) < (rhs * rhs);
+	T operator < (const vector<T>& lhs, const vector<T>& rhs) {
+		return (lhs * lhs) < (rhs * rhs);
 	}
 	
 	template <typename T>
-	bool vector<T>::operator <= (const vector<T>& rhs) {
-		return ((*this) * (*this)) <= (rhs * rhs);
+	T operator <= (const vector<T>& lhs, const vector<T>& rhs) {
+		return (lhs * lhs) <= (rhs * rhs);
 	}
 	
 	template <typename T>
-	bool vector<T>::operator > (const vector<T>& rhs) {
-		return ((*this) * (*this)) > (rhs * rhs);
+	T operator > (const vector<T>& lhs, const vector<T>& rhs) {
+		return (lhs * lhs) > (rhs * rhs);
 	}
 	
 	template <typename T>
-	bool vector<T>::operator >= (const vector<T>& rhs) {
-		return ((*this) * (*this)) >= (rhs * rhs);
+	T operator >= (const vector<T>& lhs, const vector<T>& rhs) {
+		return (lhs * lhs) >= (rhs * rhs);
 	}
 	
 } // end Pic10b namespace
