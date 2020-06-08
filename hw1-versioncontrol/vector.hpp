@@ -45,6 +45,9 @@ namespace Pic10b {
 		void push_back( double new_value );
 		void pop_back();
 		
+		//added members
+		vector& operator + (const vector& rhs);
+		vector& operator += (const vector& rhs);
 	private:
 		//Other members [private]
 		void reserve( size_t new_capacity );
@@ -256,6 +259,25 @@ namespace Pic10b {
 			delete old_location;
 		}
 	}
+	
+	
+	/* other necessary member functions */
+	template <class T>
+	vector<T>& vector<T>::operator += (const vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			the_data[i] += rhs[i];
+		}
+		return *this;
+	}
+	
+	template <class T>
+	vector<T>& vector<T>::operator + (const Pic10b::vector<T>& rhs) {
+		for (int i = 0; i < the_size; ++i) {
+			*this[i] += rhs[i];
+		}
+		return *this;
+	}
+	
 	
 } // end Pic10b namespace
 
